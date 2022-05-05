@@ -1,0 +1,383 @@
+@import url('http://fonts.cdnfonts.com/css/harry-potter');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 20px;
+    color: white;
+    font-family: "Harry Potter", sans-serif;
+}
+
+nav {
+    margin: 0 auto;
+    color: white;
+  }
+  
+.bar {
+    margin: auto;
+}
+
+ul {
+    list-style: none;
+    padding: 20px;
+    float: right;
+}
+
+li {
+    display: inline;
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.user {
+    color: white;
+    padding: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -999;
+}
+
+.title {
+    font-family: "Harry Potter", sans-serif;
+    font-size: 22px;
+    max-width: 600px;
+    margin: 0px auto 10px auto;
+    background-color: rgba(0,0,0, 0.5);
+    padding: 20px 0px 10px 0px;
+    border-bottom-left-radius: 50px;
+    border-bottom-right-radius: 50px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.timer {
+    font-family: sans-serif;
+    margin-bottom: 6px;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    color: black;
+}
+
+h1, h2, p {
+    text-align: center;
+    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.container {
+    display: block;
+    margin: 20px auto;
+    padding: 20px;
+    width: 50%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+/*Table*/
+
+table {
+    width: 100%;
+    font-family: sans-serif;
+    border: 2px solid black;
+    border-collapse: collapse;
+    text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.5);
+}
+
+th {
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.place {
+    width: 10%;
+}
+
+.data {
+    width: 45%;
+}
+
+th, td {
+    margin: 0;
+    padding: 0;
+    padding: 8px;
+    border: 2px solid black;
+}
+
+/*Game*/
+
+.game {
+    height: 100%;
+}
+
+.game.hidden {
+    display: none;
+}
+
+.flex {
+    max-width: 600px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.card {
+    position: relative;
+    transform-style: preserve-3d;
+    margin: 5px;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.card.hidden {
+    display: none;
+}
+
+.card,
+.front,
+.back {
+    height: 135px;
+    width: 135px;
+    transition: all 0.3s linear;
+}
+
+.front,
+.back {
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.front {
+    background: url('../img/front.jpg') no-repeat center center / contain;
+}
+
+.front:hover {
+    transform: scale(1.15);
+}
+
+.back {
+    transform: rotateY(180deg);
+    background: no-repeat center center / contain;
+}
+
+.selected {
+    transform: rotateY(180deg);
+}
+
+.match .front{
+    background: transparent;
+}
+
+.match {
+    box-shadow: none;
+}
+
+.message {
+    font-family: "Harry Potter", sans-serif;
+    background-color: rgba(0, 0, 0, 0.5);
+    margin: 0px auto;
+    text-align: center;
+    width: 350px;
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.33);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.33);
+    display: none;
+    opacity: 0;
+    transition: margin 0.5s opacity 0.5s;
+}
+
+.message.visible {
+    display: block;
+    margin: 100px auto;
+    opacity: 1;
+}
+
+h2 {
+    margin-bottom: 30px;
+}
+
+a {
+    padding: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    color: white;
+}
+
+.homebutton {
+    display: block;
+    padding: 20px;
+    width: 300px;
+    margin: 40px auto;
+    text-align: center;
+    font-size: 24px;
+}
+
+.homelink {
+    padding: 20px 50px;
+    font-weight: bold;
+}
+
+.nav {
+    padding: 20px;
+    color: black;
+}
+
+/*Form design*/
+
+form {
+    background: rgba(68, 68, 68, 0.6);
+    padding: 25px;
+    width: 80%;
+    max-width: 1000px;
+    margin: 30px auto;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+  }
+  
+    form > div {
+        margin-bottom: 20px;
+    }
+  
+        form label {
+            display: block;
+            font-weight: bold;
+            font-size: 95%;
+            margin-bottom: 10px;
+        }
+  
+    input[type="checkbox"] + label {    /*A checkbox típusú input után közvetlenül lévő labelre vonatkozik.*/
+        display: inline;
+        font-weight: normal;
+        vertical-align: middle;
+    }
+  
+    form input,
+    form select,
+    form textarea {
+        display: block;
+        margin: 20px auto;
+        outline: none;
+        padding: 10px 10px;
+        border-radius: 20px;
+        width: 30%;
+        background-color: #eee;
+        color: black;
+        border: 1.5px solid #333;
+        text-align: center;
+        font-family: sans-serif;
+        margin-bottom: 10px;
+        transition: background 0.2s, border 0.2s, box-shadow 0.2s;
+    }
+  
+    form input:focus,
+    form select:focus,
+    form textarea:focus {
+        background-color: #fff;
+        border: 1.5px solid #111;
+        box-shadow: 3px 3px 20px #222;
+    }
+  
+    button {                    /*3D-s gomb*/
+        margin: 20px auto;
+        padding: 10px 30px;
+        font-size: 110%;
+        border: 0;
+        border-radius: 15px;
+        cursor: pointer;
+        background: rgb(226, 70, 70);
+        text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+        border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+        border-top: 2px solid rgba(255,255,255,0.5);
+        color: #fff;
+        transition: background 0.3s;
+        outline: none;
+    }
+  
+    button:hover {
+        background: rgb(180, 50, 50);
+    }
+  
+    button:active {
+        background: rgb(160, 30, 30);
+        border-top: 3px solid rgba(0, 0, 0, 0.5);
+        border-bottom: 2px solid rgba(255,255,255,0.5);
+        transition: none;
+    }
+  
+    form select {
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url(nyil.png);
+        background-size: 10px;
+        background-repeat: no-repeat;
+        background-position: right 10px center;
+        transition: none;
+    }
+  
+    form textarea{
+        min-height: 70px;
+        width: 60%;
+        resize: none;
+        font-family: sans-serif;
+    }
+  
+    input[type="checkbox"]
+    {
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        width: 25px;
+        height: 25px;
+        padding: 0;
+        vertical-align: middle;
+    }
+  
+    input[type="checkbox"]:focus {
+        box-shadow: none;
+    }
+  
+    input[type="checkbox"]:checked {
+        background-image: url(pipa.png);
+        background-size: 25px;
+        background-repeat: no-repeat;
+        background-position: center center;
+        border: 1px solid black;
+        box-shadow: none;
+        transition: none;
+    }
+
+.error {
+    text-align: center;
+    text-shadow:#333 0px 0px 5px;
+    margin: auto;
+    background-color: rgba(255, 0, 0, 0.5);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    max-width: 20%;
+    padding: 10px;
+}
+    
+.success {
+    text-align: center;
+    margin:auto;
+    background-color: rgba(0, 255, 0, 0.5);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+    text-shadow:#333 0px 0px 5px;
+    max-width: 20%;
+    padding: 10px;
+}
