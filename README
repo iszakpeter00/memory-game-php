@@ -1,0 +1,16 @@
+The website uses a MySQL database on the localhost called 'memory-game'
+
+To use this project properly, create the database 'memory-game', then its tables with the query below:
+
+CREATE TABLE users(
+usersId INT(20) PRIMARY KEY AUTO_INCREMENT NOT NULL,
+usersName VARCHAR(128) NOT NULL,
+usersEmail VARCHAR(128) NOT NULL,
+usersUid VARCHAR(128) NOT NULL,
+usersPwd VARCHAR(128) NOT NULL
+);
+
+CREATE TABLE highscores (
+name varchar(50) NOT NULL,
+time float NOT NULL
+);
